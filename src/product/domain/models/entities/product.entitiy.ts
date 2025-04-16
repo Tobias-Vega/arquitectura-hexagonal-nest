@@ -8,18 +8,11 @@ export class Product {
     public stock: number,
   ){}
 
-  updateStock(quantity: number) {
-    if (quantity < 0) {
-      throw new Error('Stock quantity cannot be negative')
-    }
-
-    this.stock = quantity;
-  }
-
-  updateDetails(name: string, description:  string, price: number) {
-    this.name = name;
-    this.description = description;
-    this.price = price
+  updateDetails(name?: string, description?:  string, price?: number, stock?: number) {
+    if (name) this.name = name;
+    if (description) this.description = description;
+    if (price !== undefined) this.price = price;
+    if (stock!== undefined) this.stock = stock;
   }
 
 }
